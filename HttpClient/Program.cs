@@ -26,5 +26,13 @@ namespace HttpClient
             Console.WriteLine(task1);
             Console.WriteLine(task2);
         }
+
+        public async static Task GetResponse(System.Net.Http.HttpClient client)
+        {
+            var response = await client.GetAsync(requestbinUrl);
+            response.EnsureSuccessStatusCode();
+            string result = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(result);
+        }
     }
 }
