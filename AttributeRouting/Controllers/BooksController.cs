@@ -45,6 +45,14 @@ namespace AttributeRouting.Controllers
             return Ok(books);
         }
 
+        [Route("~/authors/{authorId:int}/books")]
+        public IHttpActionResult GetBooksByAuthor(int authorId)
+        {
+            var author = db.Books.Include(b => b.Author)
+                .Where(b => b.AuthorId == authorId);
+
+            return Ok(author);
+        }
         // PUT: api/Books/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutBook(int id, Book book)
