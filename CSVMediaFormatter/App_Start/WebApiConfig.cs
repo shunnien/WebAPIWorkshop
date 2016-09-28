@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSVMediaFormatter.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -19,6 +20,8 @@ namespace CSVMediaFormatter
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.Add(new ProductCsvFormatter());
         }
     }
 }

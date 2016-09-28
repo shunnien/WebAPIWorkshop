@@ -17,9 +17,9 @@ namespace CSVMediaFormatter.App_Start
     public class ProductCsvFormatter : BufferedMediaTypeFormatter
     {
         /// <summary>
-        /// Prevents a default instance of the <see cref="ProductCsvFormatter"/> class from being created.
+        /// Initializes a new instance of the <see cref="ProductCsvFormatter"/> class.
         /// </summary>
-        ProductCsvFormatter()
+        public ProductCsvFormatter()
         {
             // 加入 "text/csv" 到支援清單
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/csv"));
