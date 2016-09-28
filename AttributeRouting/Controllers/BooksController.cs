@@ -53,6 +53,18 @@ namespace AttributeRouting.Controllers
 
             return Ok(author);
         }
+
+        [Route("date/{pubdate:datetime}")]
+        public IHttpActionResult Get(DateTime pubdata)
+        {
+            var books = db.Books.Include(b => b.Author)
+                .Where(b => DbFunctions.TruncateTime(b.PublishDate)
+                            == DbFunctions.TruncateTime(pubdata)
+                );
+
+            return Ok(books);
+        }
+
         // PUT: api/Books/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutBook(int id, Book book)
