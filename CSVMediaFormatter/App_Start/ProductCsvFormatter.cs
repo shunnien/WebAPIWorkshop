@@ -68,7 +68,8 @@ namespace CSVMediaFormatter.App_Start
         /// <exception cref="InvalidOperationException">Cannot serialize type</exception>
         public override void WriteToStream(Type type, object value, Stream writeStream, HttpContent content)
         {
-            using (var writer = new StreamWriter(writeStream))
+            Encoding effectiveEncoding = SelectCharacterEncoding(content.Headers);
+            using (var writer = new StreamWriter(writeStream, effectiveEncoding))
             {
                 // 集合
                 var products = value as IEnumerable<Products>;
