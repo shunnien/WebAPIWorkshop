@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace HttpClient
 {
@@ -54,6 +55,23 @@ namespace HttpClient
             HttpResponseMessage response = await client.SendAsync(request);
             response.EnsureSuccessStatusCode();
             Console.WriteLine(await response.Content.ReadAsStringAsync());
+        }
+
+        public async static Task HttpClientForCredential()
+        {
+            // HttpClient 透過 HttpClientHandler提供屬性設置
+            // http://msdn.microsoft.com/zh-tw/library/system.net.networkcredential(v=vs.110).aspx
+            var handler = new HttpClientHandler
+            {
+                Credentials = new NetworkCredential("username", "1a2b3c4d"),
+                PreAuthenticate = true
+            };
+            System.Net.Http.HttpClient client = new System.Net.Http.HttpClient(handler);
+
+            HttpResponseMessage response = await client.GetAsync(requestbinUrl);
+            response.EnsureSuccessStatusCode();
+            string result = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(result);
         }
     }
 }
