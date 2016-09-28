@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Web;
 
 namespace CSVMediaFormatter.App_Start
@@ -23,6 +24,8 @@ namespace CSVMediaFormatter.App_Start
         {
             // 加入 "text/csv" 到支援清單
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/csv"));
+            SupportedEncodings.Add(new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
+            SupportedEncodings.Add(Encoding.GetEncoding("iso-8859-1"));
         }
 
         /// <summary>
