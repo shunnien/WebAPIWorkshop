@@ -65,6 +65,18 @@ namespace AttributeRouting.Controllers
             return Ok(books);
         }
 
+        [Route("multiRuleDate/{pubdate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
+        [Route("multiRuleDate/{*pubdate:datetime:regex(\\d{4}/\\d{2}/\\d{2})}")]
+        public IHttpActionResult GetMultiRuleDate(DateTime pubdata)
+        {
+            var books = db.Books.Include(b => b.Author)
+                .Where(b => DbFunctions.TruncateTime(b.PublishDate)
+                            == DbFunctions.TruncateTime(pubdata)
+                );
+
+            return Ok(books);
+        }
+
         // PUT: api/Books/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutBook(int id, Book book)
