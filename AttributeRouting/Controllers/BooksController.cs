@@ -12,6 +12,7 @@ using AttributeRouting.Models;
 
 namespace AttributeRouting.Controllers
 {
+    [RoutePrefix("books")]
     public class BooksController : ApiController
     {
         private BookAPIContext db = new BookAPIContext();
