@@ -25,10 +25,31 @@ namespace FromUriBody.Controllers
             return Ok(geo);
         }
 
-        // POST: api/ModelBinding
-        public void Post([FromBody]string value)
+        /// <summary>
+        /// 簡單型別指定[FromBody]
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>IHttpActionResult.</returns>
+        public IHttpActionResult Post([FromBody] string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return BadRequest("Name is empty!");
+            }
+            var hello = "Hello " + name;
+            return Ok(hello);
         }
+
+        /// <summary>
+        /// 錯誤示範 FromBody 不能在參數內使用兩次
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>IHttpActionResult.</returns>
+        //public IHttpActionResult PostError([FromBody]int id,[FromBody] string name)
+        //{
+        //    return InternalServerError();
+        //}
 
         // PUT: api/ModelBinding/5
         public void Put(int id, [FromBody]string value)
