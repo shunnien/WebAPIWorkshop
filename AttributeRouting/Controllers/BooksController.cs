@@ -36,6 +36,15 @@ namespace AttributeRouting.Controllers
             return Ok(book);
         }
 
+        [Route("{genre}")]
+        public IHttpActionResult GetBookByGenre(string genre)
+        {
+            var books = db.Books.Include(b => b.Author)
+                .Where(b => b.Genre.Equals(genre, StringComparison.OrdinalIgnoreCase));
+
+            return Ok(books);
+        }
+
         // PUT: api/Books/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutBook(int id, Book book)
