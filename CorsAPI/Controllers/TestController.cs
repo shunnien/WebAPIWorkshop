@@ -4,9 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace CorsAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:32802", headers: "*", methods: "*")]
     public class TestController : ApiController
     {
         public HttpResponseMessage Get()
