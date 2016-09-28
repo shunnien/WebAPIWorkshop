@@ -55,11 +55,13 @@ namespace AttributeRouting.Controllers
         }
 
         [Route("date/{pubdate:datetime}")]
-        public IHttpActionResult Get(DateTime pubdata)
+        [Route("date/{pubdate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
+        [Route("date/{*pubdate:datetime:regex(\\d{4}/\\d{2}/\\d{2})}")]
+        public IHttpActionResult Get(DateTime pubdate)
         {
             var books = db.Books.Include(b => b.Author)
                 .Where(b => DbFunctions.TruncateTime(b.PublishDate)
-                            == DbFunctions.TruncateTime(pubdata)
+                            == DbFunctions.TruncateTime(pubdate)
                 );
 
             return Ok(books);
@@ -67,11 +69,11 @@ namespace AttributeRouting.Controllers
 
         [Route("multiRuleDate/{pubdate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
         [Route("multiRuleDate/{*pubdate:datetime:regex(\\d{4}/\\d{2}/\\d{2})}")]
-        public IHttpActionResult GetMultiRuleDate(DateTime pubdata)
+        public IHttpActionResult GetMultiRuleDate(DateTime pubdate)
         {
             var books = db.Books.Include(b => b.Author)
                 .Where(b => DbFunctions.TruncateTime(b.PublishDate)
-                            == DbFunctions.TruncateTime(pubdata)
+                            == DbFunctions.TruncateTime(pubdate)
                 );
 
             return Ok(books);
