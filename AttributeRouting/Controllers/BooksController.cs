@@ -17,13 +17,13 @@ namespace AttributeRouting.Controllers
     {
         private BookAPIContext db = new BookAPIContext();
 
-        // GET: api/Books
+        [Route("")]
         public IQueryable<Book> GetBooks()
         {
             return db.Books;
         }
 
-        // GET: api/Books/5
+        [Route("{id:int}")]
         [ResponseType(typeof(Book))]
         public IHttpActionResult GetBook(int id)
         {
