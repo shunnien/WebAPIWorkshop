@@ -11,6 +11,9 @@ namespace CorsAPI
         {
             // Web API configuration and services
 
+            // Web API 設定和服務
+            config.EnableCors();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
