@@ -9,31 +9,36 @@ namespace CorsAPI.Controllers
 {
     public class TestController : ApiController
     {
-        // GET: api/Test
-        public IEnumerable<string> Get()
+        public HttpResponseMessage Get()
         {
-            return new string[] { "value1", "value2" };
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent("Get from test.")
+            };
         }
 
-        // GET: api/Test/5
-        public string Get(int id)
+        public HttpResponseMessage Post()
         {
-            return "value";
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent("Post from test.")
+            };
         }
 
-        // POST: api/Test
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Put()
         {
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent("Put from test.")
+            };
         }
 
-        // PUT: api/Test/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Delete()
         {
-        }
-
-        // DELETE: api/Test/5
-        public void Delete(int id)
-        {
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent("Delete from test.")
+            };
         }
     }
 }
