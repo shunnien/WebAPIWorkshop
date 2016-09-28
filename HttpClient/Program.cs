@@ -34,5 +34,26 @@ namespace HttpClient
             string result = await response.Content.ReadAsStringAsync();
             Console.WriteLine(result);
         }
+
+        public async static Task SendAsync(System.Net.Http.HttpClient client)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, requestbinUrl);
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            string result = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(result);
+        }
+
+        public async static Task POSTData()
+        {
+            System.Net.Http.HttpClient client = new System.Net.Http.HttpClient(new HttpClientHandler { UseProxy = false });
+            // POST方法
+            var request = new HttpRequestMessage(HttpMethod.Post, requestbinUrl);
+            // Content存放要上傳的內容
+            request.Content = new StringContent("This is a test.");
+            HttpResponseMessage response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+        }
     }
 }
