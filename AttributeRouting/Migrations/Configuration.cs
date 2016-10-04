@@ -1,4 +1,4 @@
-namespace AttributeRouting.Migrations
+ï»¿namespace AttributeRouting.Migrations
 {
     using Models;
     using System;
@@ -23,21 +23,21 @@ namespace AttributeRouting.Migrations
             });
 
             context.Books.AddOrUpdate(new Book[] {
-                new Book() { BookId = 1,  Title= "TED TALKS »¡¸Üªº¤O¶q", Genre = "·¾³q»¡¸Ü",
+                new Book() { BookId = 1,  Title= "TED TALKS èªªè©±çš„åŠ›é‡", Genre = "æºé€šèªªè©±",
                     PublishDate = new DateTime(2016, 06, 27), AuthorId = 1, Description =
-                    "§A¥i¥H¥Î¨¥»y¨Ó§ïÅÜ¦Û¤v¡A¤]§ïÅÜ¥@¬É TED°ß¤@©x¤èª©ºtÁ¿«ü«n¡]­­¶qºë¸Ëª©¡^", Price = 320 },
-                new Book() { BookId = 2, Title = "§À²z½×", Genre = "¸gÀÙ¾Ç",
+                    "ä½ å¯ä»¥ç”¨è¨€èªä¾†æ”¹è®Šè‡ªå·±ï¼Œä¹Ÿæ”¹è®Šä¸–ç•Œ TEDå”¯ä¸€å®˜æ–¹ç‰ˆæ¼”è¬›æŒ‡å—ï¼ˆé™é‡ç²¾è£ç‰ˆï¼‰", Price = 320 },
+                new Book() { BookId = 2, Title = "å°¾ç†è«–", Genre = "ç¶“æ¿Ÿå­¸",
                     PublishDate = new DateTime(2009, 04, 30), AuthorId = 2, Description =
-                    "¥´¯}80/20ªk«h¡AÀò§QµL­­©µ¦ù (³Ì·s¼W­qª©)", Price = 450 },
-                new Book() { BookId = 3, Title = "Google¥²­×ªº¹ÏªíÂ²³ø³N", Genre = "ºtÁ¿/Â²³ø",
+                    "æ‰“ç ´80/20æ³•å‰‡ï¼Œç²åˆ©ç„¡é™å»¶ä¼¸ (æœ€æ–°å¢è¨‚ç‰ˆ)", Price = 450 },
+                new Book() { BookId = 3, Title = "Googleå¿…ä¿®çš„åœ–è¡¨ç°¡å ±è¡“", Genre = "æ¼”è¬›/ç°¡å ±",
                     PublishDate = new DateTime(2016, 03, 26), AuthorId = 2, Description =
-                    "GoogleÁ`ºÊ­º«×¤½¶}µ´¬¡¡A±Ğ§A°µ¹ï¹Ïªí¡B»¡¹ï¸Ü¡A©Ò¦³¤H³£Å¥§Aªº¡I", Price = 420 },
-                new Book() { BookId = 4, Title = "¨Ï¥ÎªÌ¬G¨Æ¹ï·Ó", Genre = "³nÅé¤uµ{",
+                    "Googleç¸½ç›£é¦–åº¦å…¬é–‹çµ•æ´»ï¼Œæ•™ä½ åšå°åœ–è¡¨ã€èªªå°è©±ï¼Œæ‰€æœ‰äººéƒ½è½ä½ çš„ï¼", Price = 420 },
+                new Book() { BookId = 4, Title = "ä½¿ç”¨è€…æ•…äº‹å°ç…§", Genre = "è»Ÿé«”å·¥ç¨‹",
                     PublishDate = new DateTime(2016, 05, 10), AuthorId = 3, Description =
                     "User Story Mapping", Price = 580 },
-                new Book() { BookId = 5, Title = "§ïÅÜ¥@¬Éªº¤E¤jºtºâªk", Genre = "Æ[©À/ÁÍ¶Õ",
+                new Book() { BookId = 5, Title = "æ”¹è®Šä¸–ç•Œçš„ä¹å¤§æ¼”ç®—æ³•", Genre = "è§€å¿µ/è¶¨å‹¢",
                     PublishDate = new DateTime(2014, 08, 07), AuthorId = 4, Description =
-                    "Åı¤µ¤é¹q¸£µL©Ò¤£¯àªº³Ì±j·§©À", Price = 360}
+                    "è®“ä»Šæ—¥é›»è…¦ç„¡æ‰€ä¸èƒ½çš„æœ€å¼·æ¦‚å¿µ", Price = 360}
             });
         }
     }
